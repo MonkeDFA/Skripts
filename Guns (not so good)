@@ -1,0 +1,28 @@
+# made by MonkeDFA. Needs skbee to work!
+
+
+ # Normal shooter (ak47)
+on right click with netherite hoe:
+    play sound "block.note_block.pling" at volume 5 at pitch 2 to players
+    set {_v} to vector from player to target entity
+    set vector length of {_v} to 0.8
+    set {_loc} to location of player
+    loop (distance between {_loc} and target entity) / 0.1 times:
+        draw 1 dust_color_transition using dustTransition(red, orange, 20) at {_loc} with force
+        set {_loc} to {_loc} ~ {_v}
+    kill target entity
+    shoot snowball at speed 3
+    
+    
+    
+   # tnt Shooter (rpg) 
+on right click with diamond hoe:
+    play sound "block.note_block.pling" at volume 5 at pitch 2 to players
+    set {_v} to vector from player to target entity
+    set vector length of {_v} to 0.8
+    set {_loc} to location of player
+    loop (distance between {_loc} and target entity) / 0.1 times:
+        draw 1 dust_color_transition using dustTransition(red, orange, 20) at {_loc} with force
+        set {_loc} to {_loc} ~ {_v}
+    kill target entity
+    shoot primed tnt at speed 3
