@@ -1,0 +1,43 @@
+# code by MonkeDFA, give credit!
+
+
+
+
+on load:
+	set {eventcore.%server%::eventopen} to 0
+
+command /events <text> [<text>]:
+	trigger:
+		if arg-1 is set:
+			if arg-1 is "join":
+				if {eventcore.%server%::eventopen} is 1:
+					execute console command "mvtp %player% event"
+					send " &c&l[MonkeSkript] &aYou have joined event world!"
+				else if {eventcore.%server%::eventopen} is 0:
+					send "&c&l[MonkeSkript] Practice world is not open!"
+
+		if arg-1 is "open":
+			if player has permission "event.admin":
+				if {eventcore.%server%::eventopen} is 0:
+					send " &c&l[MonkeSkript] &a&lYou have successfully opened the event!"
+					set {eventcore.%server%::eventopen} to 1
+
+		if arg-1 is "close":
+			if player has permission "event.admin":
+				if {eventcore.%server%::eventopen} is 1:
+					send " &l&c[MonkeSkript] &aYou have successfully closed the event!"
+					set {eventcore.%server%::eventopen} to 0
+
+		if arg-1 is "bc":
+			if player has permission "event.admin":
+				broadcast  " &c&l[MonkeSkript] %arg-2%"
+
+		if arg-1 is "tp":
+			if player has permission "event.admin":
+				loop all players:
+					if "%region at loop-player%" contains "eventspawn":
+						if command sender is player:
+							teleport loop-player to sender
+							send "&c&lYou have teleported all players in the event spawn to you!" to sender
+
+
