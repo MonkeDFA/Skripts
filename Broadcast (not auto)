@@ -1,21 +1,10 @@
-command /bc <text>:
-	description: The command to do the boradcast (shorcut).
-	permission: broadcast.use
-	permission message: &cYou dont have perms to do that!.
-	usage: &c/bc <message/toggle>
-	aliases: /broadcast
-	trigger:
-		if arg-1 is "toggle":
-			if {autobroadcast} is not false:
-				set {autobroadcast} to false
-				send "&cAuto broadcast has been disabled."
-			else:
-				clear {autobroadcast}
-				send "&aAuto broadcast has been enabled."
-		else:
-			broadcastMessage(arg-1)
-
-function broadcastMessage(m: text):
-	broadcast ""
-	broadcast colored {_m}
-	broadcast ""
+command /bc [<text>]:
+    trigger:
+        player has permission "broadcast.admin":
+            arg is set:
+                broadcast "&7[&dServer&7] &f%colored arg%"
+                play sound "block.note_block.pling" at volume 3 at pitch 2 to players
+            else:
+                send "&7Please type a argument to broadcast"
+        else:
+            send "&cNo permissions to use this command!"
