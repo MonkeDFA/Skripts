@@ -1,0 +1,22 @@
+# Made by MonkeDFA, give credit!
+
+command /cc:
+    description: Clear the chat..
+    permission: cc.clear
+    trigger:
+        loop 300 times:
+            broadcast " "
+        broadcast "&f&m-----------------------------------------"
+        broadcast "&c%player% Has cleared chat!"
+        broadcast "&f&m-----------------------------------------"
+
+
+command /clearchat:
+    description: Same as /cc
+    permission: cc.clear
+    trigger:
+        loop 300 times:
+            broadcast " "
+        broadcast "&f&m-----------------------------------------"
+        broadcast "&c%player% Has cleared chat!"
+        broadcast "&f&m-----------------------------------------"
