@@ -1,0 +1,8 @@
+on death:
+	set {back} to victim's location
+	send "&cDo /back to get to death location!" to victim
+
+command /back:
+	permission: command.back
+	trigger:
+		teleport player to {back}
