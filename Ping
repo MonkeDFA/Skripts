@@ -1,0 +1,4 @@
+command /ping:
+  permission: command.ping
+  trigger:
+    send "&7&lYour currect ping is &c%player's ping%!
