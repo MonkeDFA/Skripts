@@ -1,0 +1,13 @@
+command /color [<text>]:
+    permission: group.legend
+    permission message: &cYou need legend rank to use this command!
+    trigger:
+        arg is set:
+            if arg-1 is "on":
+                execute console command "lp user %player% permission set lpc.colorcodes true"
+                send "&c&lYou have enabled colored messages!"
+            if arg-1 is "off":
+                execute console command "lp user %player% permission set lpc.colorcodes false"
+                send "&c&lYou have disabled colored messages!"
+            if arg-1 is not set:
+                send "&7&lPlease type full command. &c/color off/on!" to player
