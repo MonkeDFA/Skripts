@@ -1,0 +1,28 @@
+#Hub gui by MonkeDFA
+
+on inventory click:
+    if player is in world "world":
+        if index of event-slot = 4:
+            cancel event
+
+
+on rightclick with nether star:
+    if player is in world "world":
+        open virtual chest inventory with 3 row with name "&b&lServers" to player
+        set slot 11 of player's current inventory to end crystal named "&e&lCrystal" # with lore "&7Online players: &c%bungee<ffa>%/100"
+        set slot 13 of player's current inventory to iron sword named "&e&lFFA" # with lore "&7Online players: &cplaceholder/100" 
+        set slot 15 of player's current inventory to ender pearl named "&e&lDuels" # with lore "&7Online players: &cplaceholder/100"
+
+
+on inventory click:
+    if name of event-inventory is "&b&lServers":
+        cancel event
+        if index of event-slot = 11:
+            send "&7Sending you to &cCrystal."
+            send player to server "crystal"
+        else if index of event-slot = 15:
+            send "&7Sending you to &cDules."
+            make player run command "duelshub" as op
+        else if index of event-slot = 13:
+            send "&7Sending you to &cFFA."
+            send player to server "ffa"
