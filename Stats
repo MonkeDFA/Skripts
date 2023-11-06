@@ -1,0 +1,24 @@
+command /stats:
+	trigger:
+		message "&8-------------  &c&lStats &8----------------------"
+		message "&r"
+		message "&aYou have killed &e&l%{kills::%player's uuid%}% &aPlayers in total."
+		message "&aYou have died &e&l%{deaths::%player's uuid%}% &aIn total."
+		message "&aYou have placed &e&l%{place::%player's uuid%}% &aBlocks in total."
+		message "&aYou have broke &e&l%{break::%player's uuid%}% &aBlocks in total."
+		message "&r"
+		message "&8&m-----------------------------------"
+
+on death:
+    if victim is a player:
+        add 1 to {deaths::%victim's uuid%}
+		
+		
+on block place:
+        add 1 to {place::%player's uuid%}
+		
+on block break:  
+        add 1 to {break::%player's uuid%}
+
+on death:
+        add 1 to {deaths::%attacker's uuid%}
