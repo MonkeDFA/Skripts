@@ -1,0 +1,13 @@
+command /lightning [<text>]:
+    permission: death.light
+    permission message: &cYou need legend rank to use this command!
+    trigger:
+        arg is set:
+            if arg-1 is "on":
+                set {death} to true
+                send "&a&lYou have enabled Lightning effect!"
+            if arg-1 is "off":
+                delete {death}
+                send "&c&lYou have disabled Lightning effect!"
+            if arg-1 is not set:
+                send "&7&lPlease type full command. &c/color off/on!" to player
