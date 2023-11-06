@@ -1,0 +1,49 @@
+options:
+    heart: ♥
+    ver: 0.001
+
+on death of player:
+    set death message to ""
+    if attacker is a player:
+        if projectile is set:
+            send ""
+        else if attacker is set:
+            send "&b%victim% &fwas beaten to death by &b%attacker%&f &8[&b%attacker's health%{@heart}&8]&f!" to all players
+    else if damage was caused by potion:
+        send "&b%victim% &fwas killed by &e&k--&fmagic&e&k--&f." to all players
+    else if damage was caused by fall:
+        send "&fGravity got the best of &b%victim%&f." to all players
+    else if damage was caused by lava:
+        send "&b%victim% &fthought swimming in lava was a good idea." to all players
+    else if damage was caused by burning:
+        send "&b%victim% &fjust got ##Roasted." to all players
+    else if damage was caused by drown:
+        send "&b%victim% &fnever learned how to swim." to all players
+    else if damage was caused by starvation:
+        send "&b%victim% &fforgot how to use the microwave." to all players
+    else if damage was caused by lightning:
+        send "&b%victim% &fwas struck by lightning." to all players
+    else if damage was caused by block explosion:
+        send "&b%victim% &fgot too close to an explosion." to all players
+    else if damage was caused by contact:
+        send "&b%victim% &fsat on a prickle." to all players
+    else if damage was caused by suffocation:
+        send "&b%victim% &fforgot how to breathe." to all players
+    else if damage was caused by melting:
+        send "&b%victim% &fsweat to death." to all players
+    else if damage was caused by suicide:
+        send "&b%victim% &fsaw the light at the end of the tunnel." to all players
+    else if damage was caused by void:
+        send "&b%victim% &fstared into the abyss for too long, and the abyss stared back at them." to all players
+    else if damage was caused by poison:
+        send "&b%victim% &fdrank bleach irresponsibly." to all players
+    else if damage was caused by wither:
+        send "&b%victim% &fwithered away..." to all players
+    else if damage was caused by falling block:
+        send "&b%victim% &fwas crushed by a block because it wanted love." to all players
+    else if damage was caused by hitting wall while flying:
+        send "&b%victim% &fdidn't see a block." to all players
+    else if damage was caused by cramming:
+        send "&fThe huddle was too much for &b%victim%&f." to all players
+    else:
+        send "&b%victim% &fBlew up! what a noob." to all players
